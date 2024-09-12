@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Produits</title>
+</head>
+<body>
+    <h1>Liste des Produits</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produit in produits %}
+            <tr>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.description }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Aucun produit disponible</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'ajouter_produit' %}">Ajouter un nouveau produit</a>
+</body>
+</html>
